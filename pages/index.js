@@ -2,7 +2,6 @@ import { MongoClient } from "mongodb";
 import Head from "next/head";
 import MeetupList from "../components/meetups/MeetupList";
 
-
 const Homepage = (props) => {
   return (
     <>
