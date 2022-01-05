@@ -1,5 +1,4 @@
 import { MongoClient } from "mongodb";
-import apiLogin from "./api-secret";
 
 // POST /api/new-meetup
 
