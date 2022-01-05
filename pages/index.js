@@ -15,7 +15,7 @@ const Homepage = (props) => {
 };
 
 export async function getStaticProps() {
-  const client = await MongoClient.connect(apiLogin);
+  const client = await MongoClient.connect(process.env.API_KEY);
   const db = client.db();
   const meetupCollection = db.collection("meetups");
   const meetups = await meetupCollection.find().toArray();
