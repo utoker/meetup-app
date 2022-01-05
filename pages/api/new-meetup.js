@@ -7,7 +7,7 @@ const handler = async (req, res) => {
     const data = req.body;
     const { title, image, address, description } = data;
 
-    const client = await MongoClient.connect(apiLogin);
+    const client = await MongoClient.connect(process.env.API_KEY);
     const db = client.db();
     const meetupsCollection = db.collection("meetups");
     const result = await meetupsCollection.insertOne(data);

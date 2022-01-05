@@ -19,7 +19,7 @@ const MeetupDetails = (props) => {
   );
 };
 export const getStaticPaths = async () => {
-  const client = await MongoClient.connect(apiLogin);
+  const client = await MongoClient.connect(process.env.API_KEY);
   const db = client.db();
   const meetupsCollection = db.collection("meetups");
   const meetups = await meetupsCollection.find({}, { _id: 1 }).toArray();
@@ -33,7 +33,7 @@ export const getStaticPaths = async () => {
 };
 export const getStaticProps = async (context) => {
   // fetch data for single meetup
-  const client = await MongoClient.connect(apiLogin);
+  const client = await MongoClient.connect(process.env.API_KEY);
   const meetupId = context.params.meetupId;
   const db = client.db();
   const meetupsCollection = db.collection("meetups");
